@@ -3,6 +3,7 @@
 !/.projen/tasks.json
 !/.projen/deps.json
 !/.projen/files.json
+!/.mergify.yml
 !/.github/workflows/pull-request-lint.yml
 !/.github/workflows/stale.yml
 !/package.json
@@ -31,6 +32,7 @@ jspm_packages/
 *.tgz
 .yarn-integrity
 .cache
+**/__pycache__/**
 !/.projenrc.js
 /test-reports/
 junit.xml
@@ -39,7 +41,6 @@ junit.xml
 /dist/changelog.md
 /dist/version.txt
 !/.github/workflows/release.yml
-!/.mergify.yml
 !/.github/pull_request_template.md
 !/test/
 !/tsconfig.dev.json
@@ -50,4 +51,4 @@ junit.xml
 .jsii
 tsconfig.json
 !/API.md
-!/.github/workflows/upgrade-main.yml
+!/.github/workflows/upgrade-master.yml

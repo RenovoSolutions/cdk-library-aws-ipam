@@ -1,15 +1,81 @@
-const { awscdk } = require('projen');
+const { awscdk, javascript } = require('projen');
 const project = new awscdk.AwsCdkConstructLibrary({
-  author: 'Brandon Miller',
-  authorAddress: 'brandon@digital-reboot.com',
-  cdkVersion: '2.1.0',
-  defaultReleaseBranch: 'main',
-  name: 'cdk-library-aws-ipam',
+  author: 'Renovo Solutions',
+  authorAddress: 'webmaster+cdk@renovo1.com',
+  cdkVersion: '2.5.0',
+  defaultReleaseBranch: 'master',
+  name: '@renovosolutions/cdk-library-aws-ipam',
+  description: 'AWS CDK Construct Library to manage AWS VPC IP Address Manager resources',
   repositoryUrl: 'https://github.com/RenovoSolutions/cdk-library-aws-ipam.git',
-
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
+  keywords: [
+    'cdk',
+    'aws-cdk',
+    'aws-cdk-construct',
+    'projen',
+  ],
+  depsUpgrade: true,
+  depsUpgradeOptions: {
+    workflowOptions: {
+      labels: ['auto-approve', 'deps-upgrade'],
+    },
+  },
+  githubOptions: {
+    mergify: true,
+    mergifyOptions: {
+      rules: [
+        {
+          name: 'Automatically approve dependency upgrade PRs if they pass build',
+          actions: {
+            review: {
+              type: 'APPROVE',
+              message: 'Automatically approved dependency upgrade PR',
+            },
+          },
+          conditions: [
+            'label=auto-approve',
+            'label=deps-upgrade',
+            '-label~=(do-not-merge)',
+            'status-success=build',
+            'author=github-actions[bot]',
+            'title="chore(deps): upgrade dependencies"',
+          ],
+        },
+      ],
+    },
+    pullRequestLintOptions: {
+      semanticTitle: true,
+      semanticTitleOptions: {
+        types: [
+          'chore',
+          'docs',
+          'feat',
+          'fix',
+          'ci',
+          'refactor',
+          'test',
+        ],
+      },
+    },
+  },
+  releaseToNpm: true,
+  npmAccess: javascript.NpmAccess.PUBLIC,
+  releaseWorkflow: true,
+  docgen: true,
+  eslint: true,
+  publishToPypi: {
+    distName: 'renovosolutions.aws-cdk-aws-ipam',
+    module: 'ipam',
+  },
+  publishToNuget: {
+    dotNetNamespace: 'renovosolutions',
+    packageId: 'Renovo.AWSCDK.AWSIPAM',
+  },
+  jestOptions: {
+    jestConfig: {
+      timers: 'fake',
+    },
+  },
+  workflowNodeVersion: '14.17.0',
+  gitignore: ['**/__pycache__/**'],
 });
 project.synth();
