@@ -16,10 +16,10 @@
     "eslint": "npx projen eslint",
     "package": "npx projen package",
     "package-all": "npx projen package-all",
-    "package:dotnet": "npx projen package:dotnet",
     "package:js": "npx projen package:js",
     "package:python": "npx projen package:python",
     "post-compile": "npx projen post-compile",
+    "post-upgrade": "npx projen post-upgrade",
     "pre-compile": "npx projen pre-compile",
     "release": "npx projen release",
     "test": "npx projen test",
@@ -54,7 +54,7 @@
     "jsii-docgen": "^4.2.35",
     "json-schema": "^0.4.0",
     "npm-check-updates": "^12",
-    "projen": "^0.50.17",
+    "projen": "^0.51.11",
     "standard-version": "^9",
     "ts-jest": "^27.1.2",
     "typescript": "^4.5.4"
@@ -87,6 +87,7 @@
       "json",
       "lcov",
       "clover",
+      "cobertura",
       "text"
     ],
     "coverageDirectory": "coverage",
@@ -123,10 +124,6 @@
       "python": {
         "distName": "renovosolutions.aws-cdk-aws-ipam",
         "module": "ipam"
-      },
-      "dotnet": {
-        "namespace": "renovosolutions",
-        "packageId": "Renovo.AWSCDK.AWSIPAM"
       }
     },
     "tsc": {
