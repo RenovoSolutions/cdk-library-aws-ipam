@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot 1`] = `
+Object {
+  "Parameters": Object {
+    "BootstrapVersion": Object {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": Object {
+    "Allocation0C3A263D": Object {
+      "Properties": Object {
+        "IpamPoolId": Object {
+          "Fn::GetAtt": Array [
+            "PoolUsEast1ScopeB37A807D",
+            "IpamPoolId",
+          ],
+        },
+      },
+      "Type": "AWS::EC2::IPAMAllocation",
+    },
+    "AllocationUsEast2AllocationE15E3406": Object {
+      "Properties": Object {
+        "IpamPoolId": Object {
+          "Fn::GetAtt": Array [
+            "PoolUsEast2ScopeD17EB1AD",
+            "IpamPoolId",
+          ],
+        },
+        "NetmaskLength": 16,
+      },
+      "Type": "AWS::EC2::IPAMAllocation",
+    },
+    "IPAM3486FD3C": Object {
+      "Properties": Object {
+        "OperatingRegions": Array [
+          Object {
+            "RegionName": Object {
+              "Ref": "AWS::Region",
+            },
+          },
+        ],
+      },
+      "Type": "AWS::EC2::IPAM",
+    },
+    "PoolScopeE0646CBB": Object {
+      "Properties": Object {
+        "AddressFamily": "ipv4",
+        "IpamScopeId": Object {
+          "Fn::GetAtt": Array [
+            "Scope68AA8284",
+            "IpamScopeId",
+          ],
+        },
+        "ProvisionedCidrs": Array [
+          Object {
+            "Cidr": "10.0.0.0/8",
+          },
+          Object {
+            "Cidr": "172.16.0.0/12",
+          },
+          Object {
+            "Cidr": "192.168.0.0/16",
+          },
+        ],
+      },
+      "Type": "AWS::EC2::IPAMPool",
+    },
+    "PoolUsEast1ScopeB37A807D": Object {
+      "Properties": Object {
+        "AddressFamily": "ipv4",
+        "AllocationDefaultNetmaskLength": 16,
+        "AllocationMaxNetmaskLength": 24,
+        "AllocationMinNetmaskLength": 16,
+        "IpamScopeId": Object {
+          "Fn::GetAtt": Array [
+            "IPAM3486FD3C",
+            "PrivateDefaultScopeId",
+          ],
+        },
+        "Locale": "us-east-1",
+        "ProvisionedCidrs": Array [
+          Object {
+            "Cidr": "10.0.0.0/12",
+          },
+        ],
+        "SourceIpamPoolId": Object {
+          "Fn::GetAtt": Array [
+            "PoolScopeE0646CBB",
+            "IpamPoolId",
+          ],
+        },
+      },
+      "Type": "AWS::EC2::IPAMPool",
+    },
+    "PoolUsEast2ScopeD17EB1AD": Object {
+      "Properties": Object {
+        "AddressFamily": "ipv4",
+        "AllocationResourceTags": Array [
+          Object {
+            "Key": "type",
+            "Value": "test",
+          },
+        ],
+        "IpamScopeId": Object {
+          "Fn::GetAtt": Array [
+            "IPAM3486FD3C",
+            "PrivateDefaultScopeId",
+          ],
+        },
+        "Locale": "us-east-2",
+        "ProvisionedCidrs": Array [
+          Object {
+            "Cidr": "10.16.0.0/12",
+          },
+        ],
+        "SourceIpamPoolId": Object {
+          "Fn::GetAtt": Array [
+            "PoolScopeE0646CBB",
+            "IpamPoolId",
+          ],
+        },
+      },
+      "Type": "AWS::EC2::IPAMPool",
+    },
+    "Scope68AA8284": Object {
+      "Properties": Object {
+        "IpamId": Object {
+          "Ref": "IPAM3486FD3C",
+        },
+        "IpamScopeType": "private",
+      },
+      "Type": "AWS::EC2::IPAMScope",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
