@@ -4,7 +4,6 @@ import {
   Ipam,
   IpamScope,
   IpamPool,
-  IpamScopeType,
   IpamPoolAddressFamily,
   IpamAllocation,
 } from '../src/index';
@@ -16,7 +15,6 @@ test('Snapshot', () => {
   const ipam = new Ipam(stack, 'IPAM', {});
   const scope = new IpamScope(stack, 'Scope', {
     ipam: ipam,
-    ipamScopeType: IpamScopeType.PRIVATE,
   });
 
   const pool = new IpamPool(stack, 'Pool', {
