@@ -6,11 +6,6 @@ import {
 } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 
-export enum IpamScopeType {
-  PUBLIC = 'public',
-  PRIVATE = 'private',
-}
-
 export enum IpamPoolAddressFamily {
   IPV4 = 'ipv4',
   IPV6 = 'ipv6'
@@ -117,12 +112,6 @@ export interface IpamScopeProps {
    */
   readonly description?: string;
   /**
-   * The type of scope
-   *
-   * @default IpamScopeType.PRIVATE
-   */
-  readonly ipamScopeType?: IpamScopeType;
-  /**
    * The key/value combination of tags to assign to the resource.
    */
   readonly tags?: CfnTag[];
@@ -167,12 +156,9 @@ export class IpamScope extends Construct {
   constructor(scope: Construct, id: string, props: IpamScopeProps) {
     super(scope, id);
 
-    const ipamScopeType: IpamScopeType = props.ipamScopeType ?? IpamScopeType.PRIVATE;
-
     this.scope = new ec2.CfnIPAMScope(this, 'Scope', {
       description: props.description,
       ipamId: props.ipam.ipamId,
-      ipamScopeType,
       tags: props.tags,
     });
 
@@ -293,9 +279,9 @@ export class IpamPool extends Construct {
    */
   public readonly ipamScopeArn: string;
   /**
-   * The IPAM scope type (public ir private) of the scope of the IPAM Pool
+   * The IPAM scope type (public or private) of the scope of the IPAM Pool
    */
-  public readonly ipamScopeType: IpamScopeType;
+  public readonly ipamScopeType: string;
   /**
    * The depth of pools in your IPAM pool.
    */
@@ -341,7 +327,7 @@ export class IpamPool extends Construct {
     this.ipamArn = this.pool.attrIpamArn;
     this.ipamPoolId = this.pool.attrIpamPoolId;
     this.ipamScopeArn = this.pool.attrIpamScopeArn;
-    this.ipamScopeType = IpamScopeType[this.pool.attrIpamScopeType as keyof typeof IpamScopeType];
+    this.ipamScopeType = this.pool.attrIpamScopeType;
     this.poolDepth = this.pool.attrPoolDepth;
     this.state = this.pool.attrState;
     this.stateMessage = this.pool.attrStateMessage;

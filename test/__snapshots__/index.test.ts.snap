@@ -130,7 +130,6 @@ Object {
         "IpamId": Object {
           "Ref": "IPAM3486FD3C",
         },
-        "IpamScopeType": "private",
       },
       "Type": "AWS::EC2::IPAMScope",
     },

@@ -266,7 +266,7 @@ The CIDR to add to the pool.
 | [`ipamArn`](#renovosolutionscdklibraryawsipamipampoolpropertyipamarn)<span title="Required">*</span> | `string` | The ARN of the IPAM this pool belongs to. |
 | [`ipamPoolId`](#renovosolutionscdklibraryawsipamipampoolpropertyipampoolid)<span title="Required">*</span> | `string` | The ID of the resulting IPAM Pool resource. |
 | [`ipamScopeArn`](#renovosolutionscdklibraryawsipamipampoolpropertyipamscopearn)<span title="Required">*</span> | `string` | The ARN of the scope of the IPAM Pool. |
-| [`ipamScopeType`](#renovosolutionscdklibraryawsipamipampoolpropertyipamscopetype)<span title="Required">*</span> | [`@renovosolutions/cdk-library-aws-ipam.IpamScopeType`](#@renovosolutions/cdk-library-aws-ipam.IpamScopeType) | The IPAM scope type (public ir private) of the scope of the IPAM Pool. |
+| [`ipamScopeType`](#renovosolutionscdklibraryawsipamipampoolpropertyipamscopetype)<span title="Required">*</span> | `string` | The IPAM scope type (public or private) of the scope of the IPAM Pool. |
 | [`pool`](#renovosolutionscdklibraryawsipamipampoolpropertypool)<span title="Required">*</span> | [`aws-cdk-lib.aws_ec2.CfnIPAMPool`](#aws-cdk-lib.aws_ec2.CfnIPAMPool) | The underlying IPAM Pool resource. |
 | [`poolDepth`](#renovosolutionscdklibraryawsipamipampoolpropertypooldepth)<span title="Required">*</span> | `number` | The depth of pools in your IPAM pool. |
 | [`provisionedCidrs`](#renovosolutionscdklibraryawsipamipampoolpropertyprovisionedcidrs)<span title="Required">*</span> | [`aws-cdk-lib.aws_ec2.CfnIPAMPool.ProvisionedCidrProperty`](#aws-cdk-lib.aws_ec2.CfnIPAMPool.ProvisionedCidrProperty)[] | The provisioned CIDRs for this pool. |
@@ -327,12 +327,12 @@ The ARN of the scope of the IPAM Pool.
 ##### `ipamScopeType`<sup>Required</sup> <a name="@renovosolutions/cdk-library-aws-ipam.IpamPool.property.ipamScopeType" id="renovosolutionscdklibraryawsipamipampoolpropertyipamscopetype"></a>
 
 ```typescript
-public readonly ipamScopeType: IpamScopeType;
+public readonly ipamScopeType: string;
 ```
 
-- *Type:* [`@renovosolutions/cdk-library-aws-ipam.IpamScopeType`](#@renovosolutions/cdk-library-aws-ipam.IpamScopeType)
+- *Type:* `string`
 
-The IPAM scope type (public ir private) of the scope of the IPAM Pool.
+The IPAM scope type (public or private) of the scope of the IPAM Pool.
 
 ---
 
@@ -886,7 +886,6 @@ const ipamScopeProps: IpamScopeProps = { ... }
 | --- | --- | --- |
 | [`ipam`](#renovosolutionscdklibraryawsipamipamscopepropspropertyipam)<span title="Required">*</span> | [`@renovosolutions/cdk-library-aws-ipam.Ipam`](#@renovosolutions/cdk-library-aws-ipam.Ipam) | The IPAM for which you're creating the scope. |
 | [`description`](#renovosolutionscdklibraryawsipamipamscopepropspropertydescription) | `string` | The description of the scope. |
-| [`ipamScopeType`](#renovosolutionscdklibraryawsipamipamscopepropspropertyipamscopetype) | [`@renovosolutions/cdk-library-aws-ipam.IpamScopeType`](#@renovosolutions/cdk-library-aws-ipam.IpamScopeType) | The type of scope. |
 | [`tags`](#renovosolutionscdklibraryawsipamipamscopepropspropertytags) | [`aws-cdk-lib.CfnTag`](#aws-cdk-lib.CfnTag)[] | The key/value combination of tags to assign to the resource. |
 
 ---
@@ -912,19 +911,6 @@ public readonly description: string;
 - *Type:* `string`
 
 The description of the scope.
-
----
-
-##### `ipamScopeType`<sup>Optional</sup> <a name="@renovosolutions/cdk-library-aws-ipam.IpamScopeProps.property.ipamScopeType" id="renovosolutionscdklibraryawsipamipamscopepropspropertyipamscopetype"></a>
-
-```typescript
-public readonly ipamScopeType: IpamScopeType;
-```
-
-- *Type:* [`@renovosolutions/cdk-library-aws-ipam.IpamScopeType`](#@renovosolutions/cdk-library-aws-ipam.IpamScopeType)
-- *Default:* IpamScopeType.PRIVATE
-
-The type of scope.
 
 ---
 
@@ -959,25 +945,6 @@ The key/value combination of tags to assign to the resource.
 
 
 #### `IPV6` <a name="@renovosolutions/cdk-library-aws-ipam.IpamPoolAddressFamily.IPV6" id="renovosolutionscdklibraryawsipamipampooladdressfamilyipv6"></a>
-
----
-
-
-### IpamScopeType <a name="IpamScopeType" id="ipamscopetype"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| [`PUBLIC`](#renovosolutionscdklibraryawsipamipamscopetypepublic) | *No description.* |
-| [`PRIVATE`](#renovosolutionscdklibraryawsipamipamscopetypeprivate) | *No description.* |
-
----
-
-#### `PUBLIC` <a name="@renovosolutions/cdk-library-aws-ipam.IpamScopeType.PUBLIC" id="renovosolutionscdklibraryawsipamipamscopetypepublic"></a>
-
----
-
-
-#### `PRIVATE` <a name="@renovosolutions/cdk-library-aws-ipam.IpamScopeType.PRIVATE" id="renovosolutionscdklibraryawsipamipamscopetypeprivate"></a>
 
 ---
 
