@@ -18,6 +18,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
     workflowOptions: {
       labels: ['auto-approve', 'deps-upgrade'],
     },
+    exclude: ['projen'],
   },
   githubOptions: {
     mergify: true,
@@ -78,4 +79,16 @@ const project = new awscdk.AwsCdkConstructLibrary({
   workflowNodeVersion: '14.17.0',
   gitignore: ['**/__pycache__/**'],
 });
+
+new javascript.UpgradeDependencies(project, {
+  include: ['projen'],
+  taskName: 'upgrade-projen',
+  labels: ['projen-upgrade'],
+  workflow: true,
+  workflowOptions: {
+    schedule: javascript.UpgradeDependenciesSchedule.expressions(['0 2 * * 1']),
+  },
+  pullRequestTitle: 'chore(deps): upgrade projen',
+});
+
 project.synth();
