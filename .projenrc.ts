@@ -3,7 +3,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Renovo Solutions',
   authorAddress: 'webmaster+cdk@renovo1.com',
   projenrcTs: true,
-  cdkVersion: '2.59.0',
+  cdkVersion: '2.60.0',
   defaultReleaseBranch: 'master',
   name: '@renovosolutions/cdk-library-aws-ipam',
   description: 'AWS CDK Construct Library to manage AWS VPC IP Address Manager resources',
