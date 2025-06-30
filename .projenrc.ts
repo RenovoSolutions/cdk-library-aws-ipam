@@ -3,7 +3,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Renovo Solutions',
   authorAddress: 'webmaster+cdk@renovo1.com',
   projenrcTs: true,
-  cdkVersion: '2.100.0',
+  cdkVersion: '2.202.0',
+  jsiiVersion: '^5.8.0',
   defaultReleaseBranch: 'master',
   name: '@renovosolutions/cdk-library-aws-ipam',
   description: 'AWS CDK Construct Library to manage AWS VPC IP Address Manager resources',
@@ -66,7 +67,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   eslint: true,
   publishToPypi: {
     distName: 'renovosolutions.aws-cdk-aws-ipam',
-    module: 'ipam',
+    module: 'renovosolutions_aws_ipam',
   },
   // publishToNuget: { // Currently seems to be broken. Jsii seems to incorrectly convert the CfnIPAMPool to CfnIpamPool
   //   dotNetNamespace: 'renovosolutions',
@@ -74,7 +75,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
   // },
   jestOptions: {
     jestConfig: {
-      timers: 'fake',
+      fakeTimers: {
+        enableGlobally: true,
+      },
     },
   },
   gitignore: ['**/__pycache__/**'],

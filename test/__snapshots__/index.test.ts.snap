@@ -1,19 +1,19 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Snapshot 1`] = `
-Object {
-  "Parameters": Object {
-    "BootstrapVersion": Object {
+{
+  "Parameters": {
+    "BootstrapVersion": {
       "Default": "/cdk-bootstrap/hnb659fds/version",
       "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
       "Type": "AWS::SSM::Parameter::Value<String>",
     },
   },
-  "Resources": Object {
-    "Allocation0C3A263D": Object {
-      "Properties": Object {
-        "IpamPoolId": Object {
-          "Fn::GetAtt": Array [
+  "Resources": {
+    "Allocation0C3A263D": {
+      "Properties": {
+        "IpamPoolId": {
+          "Fn::GetAtt": [
             "PoolUsEast1ScopeB37A807D",
             "IpamPoolId",
           ],
@@ -21,10 +21,10 @@ Object {
       },
       "Type": "AWS::EC2::IPAMAllocation",
     },
-    "AllocationUsEast2AllocationE15E3406": Object {
-      "Properties": Object {
-        "IpamPoolId": Object {
-          "Fn::GetAtt": Array [
+    "AllocationUsEast2AllocationE15E3406": {
+      "Properties": {
+        "IpamPoolId": {
+          "Fn::GetAtt": [
             "PoolUsEast2ScopeD17EB1AD",
             "IpamPoolId",
           ],
@@ -33,11 +33,11 @@ Object {
       },
       "Type": "AWS::EC2::IPAMAllocation",
     },
-    "IPAM3486FD3C": Object {
-      "Properties": Object {
-        "OperatingRegions": Array [
-          Object {
-            "RegionName": Object {
+    "IPAM3486FD3C": {
+      "Properties": {
+        "OperatingRegions": [
+          {
+            "RegionName": {
               "Ref": "AWS::Region",
             },
           },
@@ -45,49 +45,49 @@ Object {
       },
       "Type": "AWS::EC2::IPAM",
     },
-    "PoolScopeE0646CBB": Object {
-      "Properties": Object {
+    "PoolScopeE0646CBB": {
+      "Properties": {
         "AddressFamily": "ipv4",
-        "IpamScopeId": Object {
-          "Fn::GetAtt": Array [
+        "IpamScopeId": {
+          "Fn::GetAtt": [
             "Scope68AA8284",
             "IpamScopeId",
           ],
         },
-        "ProvisionedCidrs": Array [
-          Object {
+        "ProvisionedCidrs": [
+          {
             "Cidr": "10.0.0.0/8",
           },
-          Object {
+          {
             "Cidr": "172.16.0.0/12",
           },
-          Object {
+          {
             "Cidr": "192.168.0.0/16",
           },
         ],
       },
       "Type": "AWS::EC2::IPAMPool",
     },
-    "PoolUsEast1ScopeB37A807D": Object {
-      "Properties": Object {
+    "PoolUsEast1ScopeB37A807D": {
+      "Properties": {
         "AddressFamily": "ipv4",
         "AllocationDefaultNetmaskLength": 16,
         "AllocationMaxNetmaskLength": 24,
         "AllocationMinNetmaskLength": 16,
-        "IpamScopeId": Object {
-          "Fn::GetAtt": Array [
+        "IpamScopeId": {
+          "Fn::GetAtt": [
             "IPAM3486FD3C",
             "PrivateDefaultScopeId",
           ],
         },
         "Locale": "us-east-1",
-        "ProvisionedCidrs": Array [
-          Object {
+        "ProvisionedCidrs": [
+          {
             "Cidr": "10.0.0.0/12",
           },
         ],
-        "SourceIpamPoolId": Object {
-          "Fn::GetAtt": Array [
+        "SourceIpamPoolId": {
+          "Fn::GetAtt": [
             "PoolScopeE0646CBB",
             "IpamPoolId",
           ],
@@ -95,29 +95,29 @@ Object {
       },
       "Type": "AWS::EC2::IPAMPool",
     },
-    "PoolUsEast2ScopeD17EB1AD": Object {
-      "Properties": Object {
+    "PoolUsEast2ScopeD17EB1AD": {
+      "Properties": {
         "AddressFamily": "ipv4",
-        "AllocationResourceTags": Array [
-          Object {
+        "AllocationResourceTags": [
+          {
             "Key": "type",
             "Value": "test",
           },
         ],
-        "IpamScopeId": Object {
-          "Fn::GetAtt": Array [
+        "IpamScopeId": {
+          "Fn::GetAtt": [
             "IPAM3486FD3C",
             "PrivateDefaultScopeId",
           ],
         },
         "Locale": "us-east-2",
-        "ProvisionedCidrs": Array [
-          Object {
+        "ProvisionedCidrs": [
+          {
             "Cidr": "10.16.0.0/12",
           },
         ],
-        "SourceIpamPoolId": Object {
-          "Fn::GetAtt": Array [
+        "SourceIpamPoolId": {
+          "Fn::GetAtt": [
             "PoolScopeE0646CBB",
             "IpamPoolId",
           ],
@@ -125,31 +125,31 @@ Object {
       },
       "Type": "AWS::EC2::IPAMPool",
     },
-    "Scope68AA8284": Object {
-      "Properties": Object {
-        "IpamId": Object {
+    "Scope68AA8284": {
+      "Properties": {
+        "IpamId": {
           "Ref": "IPAM3486FD3C",
         },
       },
       "Type": "AWS::EC2::IPAMScope",
     },
   },
-  "Rules": Object {
-    "CheckBootstrapVersion": Object {
-      "Assertions": Array [
-        Object {
-          "Assert": Object {
-            "Fn::Not": Array [
-              Object {
-                "Fn::Contains": Array [
-                  Array [
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
                     "1",
                     "2",
                     "3",
                     "4",
                     "5",
                   ],
-                  Object {
+                  {
                     "Ref": "BootstrapVersion",
                   },
                 ],

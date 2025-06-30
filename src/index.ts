@@ -8,7 +8,7 @@ import { Construct } from 'constructs';
 
 export enum IpamPoolAddressFamily {
   IPV4 = 'ipv4',
-  IPV6 = 'ipv6'
+  IPV6 = 'ipv6',
 }
 
 /**
@@ -40,7 +40,7 @@ export interface IpamProps {
 /**
  * Creates an IPAM.
  *
- * PAM is a VPC feature that you can use to automate your IP address management workflows including
+ * IPAM is a VPC feature that you can use to automate your IP address management workflows including
  * assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts
  * throughout your AWS Organization. For more information, see What is IPAM? in the Amazon VPC IPAM
  * User Guide.
