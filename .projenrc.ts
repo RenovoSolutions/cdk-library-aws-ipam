@@ -3,7 +3,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Renovo Solutions',
   authorAddress: 'webmaster+cdk@renovo1.com',
   projenrcTs: true,
-  cdkVersion: '2.202.0',
+  cdkVersion: '2.208.0',
   jsiiVersion: '^5.8.0',
   defaultReleaseBranch: 'master',
   name: '@renovosolutions/cdk-library-aws-ipam',
@@ -69,10 +69,10 @@ const project = new awscdk.AwsCdkConstructLibrary({
     distName: 'renovosolutions.aws-cdk-aws-ipam',
     module: 'renovosolutions_aws_ipam',
   },
-  // publishToNuget: { // Currently seems to be broken. Jsii seems to incorrectly convert the CfnIPAMPool to CfnIpamPool
-  //   dotNetNamespace: 'renovosolutions',
-  //   packageId: 'Renovo.AWSCDK.AWSIPAM',
-  // },
+  publishToNuget: {
+    dotNetNamespace: 'renovosolutions',
+    packageId: 'Renovo.AWSCDK.AWSIPAM',
+  },
   jestOptions: {
     jestConfig: {
       fakeTimers: {
