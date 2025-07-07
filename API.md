@@ -94,7 +94,7 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@renovosolutions/cdk-library-aws-ipam.Ipam.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@renovosolutions/cdk-library-aws-ipam.Ipam.property.ipam">ipam</a></code> | <code>aws-cdk-lib.aws_ec2.CfnIPAM</code> | The underlying IPAM resource. |
+| <code><a href="#@renovosolutions/cdk-library-aws-ipam.Ipam.property.cfnIpam">cfnIpam</a></code> | <code>aws-cdk-lib.aws_ec2.CfnIPAM</code> | The underlying IPAM resource. |
 | <code><a href="#@renovosolutions/cdk-library-aws-ipam.Ipam.property.ipamId">ipamId</a></code> | <code>string</code> | The ID of the resulting IPAM resource. |
 | <code><a href="#@renovosolutions/cdk-library-aws-ipam.Ipam.property.privateDefaultScopeId">privateDefaultScopeId</a></code> | <code>string</code> | The default private scope ID. |
 | <code><a href="#@renovosolutions/cdk-library-aws-ipam.Ipam.property.publicDefaultScopeId">publicDefaultScopeId</a></code> | <code>string</code> | The default public scope ID. |
@@ -114,10 +114,10 @@ The tree node.
 
 ---
 
-##### `ipam`<sup>Required</sup> <a name="ipam" id="@renovosolutions/cdk-library-aws-ipam.Ipam.property.ipam"></a>
+##### `cfnIpam`<sup>Required</sup> <a name="cfnIpam" id="@renovosolutions/cdk-library-aws-ipam.Ipam.property.cfnIpam"></a>
 
 ```typescript
-public readonly ipam: CfnIPAM;
+public readonly cfnIpam: CfnIPAM;
 ```
 
 - *Type:* aws-cdk-lib.aws_ec2.CfnIPAM
