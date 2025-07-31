@@ -52,7 +52,7 @@ export class Ipam extends Construct {
   /**
    * The underlying IPAM resource
    */
-  public readonly ipam: ec2.CfnIPAM;
+  public readonly cfnIpam: ec2.CfnIPAM;
   /**
    * The ID of the resulting IPAM resource
    */
@@ -86,16 +86,16 @@ export class Ipam extends Construct {
       });
     }
 
-    this.ipam = new ec2.CfnIPAM(this, 'IPAM', {
+    this.cfnIpam = new ec2.CfnIPAM(this, 'IPAM', {
       description: props.description,
       operatingRegions,
       tags: props.tags,
     });
 
-    this.ipamId = this.ipam.ref;
-    this.privateDefaultScopeId = this.ipam.attrPrivateDefaultScopeId;
-    this.publicDefaultScopeId = this.ipam.attrPublicDefaultScopeId;
-    this.scopeCount = this.ipam.attrScopeCount;
+    this.ipamId = this.cfnIpam.ref;
+    this.privateDefaultScopeId = this.cfnIpam.attrPrivateDefaultScopeId;
+    this.publicDefaultScopeId = this.cfnIpam.attrPublicDefaultScopeId;
+    this.scopeCount = this.cfnIpam.attrScopeCount;
   }
 }
 
